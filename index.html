@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educación Financiera</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #FFD700; /* Amarillo vibrante */
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #EEE;
+        }
+
+        /* Estilo del video */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        /* Botón principal */
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #FF4500; /* Rojo vibrante */
+            color: white;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-primary:hover {
+            background-color: #800080; /* Morado oscuro */
+            transform: translateY(-3px);
+        }
+
+        /* Estilo del formulario */
+        .form-container {
+            margin-top: 2rem;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"] {
+            padding: 0.8rem;
+            width: 100%;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        input[type="submit"] {
+            padding: 1rem 2rem;
+            background-color: #FFD700; /* Amarillo */
+            color: black;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #FF4500; /* Rojo */
+            color: white;
+        }
+
+        /* Llamado a la acción de WhatsApp (oculto por defecto) */
+        .whatsapp-container {
+            display: none; /* Oculto inicialmente */
+            margin-top: 2rem;
+            background-color: #25D366; /* Verde típico de WhatsApp */
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .whatsapp-container p {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #128C7E; /* Verde WhatsApp */
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #075E54;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Transforma tu Futuro Financiero</h1>
+        <p>Aprende sobre educación financiera y toma el control de tus finanzas personales. ¡Únete a nosotros hoy!</p>
+
+        <!-- Video -->
+        <div class="video-container">
+            <video autoplay muted loop controls>
+                <source src="video.mp4" type="video/mp4">
+                Tu navegador no soporta videos HTML5.
+            </video>
+        </div>
+
+        <!-- Formulario de registro -->
+        <div class="form-container">
+            <form id="registerForm">
+                <input type="text" id="name" name="name" placeholder="Nombre Completo" required>
+                <input type="tel" id="phone" name="phone" placeholder="Teléfono" required>
+                <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
+                <input type="submit" value="Registrarse">
+            </form>
+        </div>
+
+        <!-- Llamado a la acción de WhatsApp (oculto inicialmente) -->
+        <div class="whatsapp-container" id="whatsappContainer">
+            <p>¿Listo para aprender más? Únete a nuestro grupo de WhatsApp para obtener acceso exclusivo a contenido financiero.</p>
+            <a href="https://wa.me/XXXXXXXXXXX" target="_blank" class="btn-whatsapp">Únete a nuestro Grupo</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript para manejar el envío del formulario
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío del formulario
+
+            // Simulamos validación de datos
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+
+            if(name && phone && email) {
+                // Si los campos están completos, mostramos el contenido de WhatsApp
+                document.getElementById('whatsappContainer').style.display = 'block';
+                alert('¡Registro exitoso! Ahora puedes unirte a nuestro grupo de WhatsApp.');
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        });
+    </script>
+
+</body>
+</html>
