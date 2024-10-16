@@ -74,44 +74,49 @@
             transform: translateY(-3px);
         }
 
-        /* Estilo del formulario */
+        /* Formulario de registro */
         .form-container {
             margin-top: 2rem;
+            background-color: #333;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px; /* Ajustar el ancho máximo del contenedor */
+            margin-left: auto; /* Centrar el contenedor horizontalmente */
+            margin-right: auto; /* Centrar el contenedor horizontalmente */
         }
 
-        input[type="text"], input[type="email"], input[type="tel"] {
-            padding: 0.8rem;
+        .form-container label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #FFD700;
+        }
+
+        .form-container input {
             width: 100%;
+            padding: 0.5rem;
             margin-bottom: 1rem;
             border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 1rem;
-        }
-
-        input[type="submit"] {
-            padding: 1rem 2rem;
-            background-color: #FFD700; /* Amarillo */
-            color: black;
-            font-size: 1.2rem;
-            border-radius: 50px;
             border: none;
+            background-color: #444;
+            color: rgb(0, 0, 0);
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #FFD700;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
 
-        input[type="submit"]:hover {
-            background-color: #FF4500; /* Rojo */
-            color: white;
+        .form-container input[type="submit"]:hover {
+            background-color: #c7b300;
         }
 
-        /* Llamado a la acción de WhatsApp (oculto por defecto) */
+        /* Llamado a la acción de WhatsApp (Oculto inicialmente) */
         .whatsapp-container {
-            display: none; /* Oculto inicialmente */
             margin-top: 2rem;
-            background-color: #25D366; /* Verde típico de WhatsApp */
+            background-color: #313332; /* Verde típico de WhatsApp */
             padding: 1.5rem;
             border-radius: 10px;
-            display: inline-block;
+            display: none; /* Oculto inicialmente */
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
         }
 
@@ -151,40 +156,45 @@
             </video>
         </div>
 
-        <!-- Formulario de registro -->
-        <div class="form-container">
-            <form id="registerForm">
-                <input type="text" id="name" name="name" placeholder="Nombre Completo" required>
-                <input type="tel" id="phone" name="phone" placeholder="Teléfono" required>
-                <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
-                <input type="submit" value="Registrarse">
-            </form>
-        </div>
-
-        <!-- Llamado a la acción de WhatsApp (oculto inicialmente) -->
+        <!-- Llamado a la acción de WhatsApp -->
         <div class="whatsapp-container" id="whatsappContainer">
             <p>¿Listo para aprender más? Únete a nuestro grupo de WhatsApp para obtener acceso exclusivo a contenido financiero.</p>
             <a href="https://wa.me/XXXXXXXXXXX" target="_blank" class="btn-whatsapp">Únete a nuestro Grupo</a>
         </div>
+
+        <!-- Formulario de registro -->
+        <div class="form-container">
+            <form id="registrationForm">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">Teléfono:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="email">Correo:</label>
+                <input type="email" id="email" name="email" required>
+
+                <input type="submit" value="Registrarse">
+            </form>
+        </div>
+
     </div>
 
     <script>
-        // JavaScript para manejar el envío del formulario
-        document.getElementById('registerForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evitar el envío del formulario
+        // Lógica para mostrar la sección de WhatsApp solo después del registro
+        const form = document.getElementById('registrationForm');
+        const whatsappContainer = document.getElementById('whatsappContainer');
 
-            // Simulamos validación de datos
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío real del formulario
 
-            if(name && phone && email) {
-                // Si los campos están completos, mostramos el contenido de WhatsApp
-                document.getElementById('whatsappContainer').style.display = 'block';
-                alert('¡Registro exitoso! Ahora puedes unirte a nuestro grupo de WhatsApp.');
-            } else {
-                alert('Por favor, completa todos los campos.');
-            }
+            // Simular registro exitoso (podrías enviar los datos al servidor aquí)
+
+            // Mostrar la sección de WhatsApp
+            whatsappContainer.style.display = 'block';
+
+            // Opcional: Limpiar el formulario después de enviar
+            form.reset();
         });
     </script>
 
